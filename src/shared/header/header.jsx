@@ -1,11 +1,14 @@
 import React from 'react';
 import './header.scss';
+import OutlinedInput from '@material-ui/core/TextField';
 
 const Header = () => {
     return (
         <header className="pageHeader">
-            <div className="left"><input className="headerSearch" type="text" placeholder="Search"/></div>
-            <div className="right"></div>
+            <OutlinedInput
+                placeholder="Search"
+                color="primary"
+            />
         </header>
      );
 }
