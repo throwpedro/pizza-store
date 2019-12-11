@@ -1,21 +1,18 @@
-import React from 'react';
-import './header.scss';
-import { Container, Row, Col } from 'react-grid-system';
-
+import React from "react";
+import "./header.scss";
+import pizzaLogo from './../../media/pizza.png';
 
 const Header = () => {
     return (
-        <Container className="header">
-            <Row>
-                <Col sm={6}>
-                One of three columns
-                </Col>
-                <Col sm={6}>
-                One of three columns
-                </Col>
-            </Row>
-        </Container>
-     );
-}
+        <header className="header">
+            <div className="logo-container">
+                <img src={pizzaLogo} alt="pizza icon" />
+            </div>
+            <div className="app-name-container">
+                <span>The Pizza Shop!</span>
+            </div>
+        </header>
+    );
+};
 
 export default Header;

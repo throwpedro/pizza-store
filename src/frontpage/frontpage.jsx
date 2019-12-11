@@ -1,5 +1,6 @@
 import React from 'react';
 import Welcome from './welcome/welcome';
+import './frontpage.scss';
 
 class Frontpage extends React.Component {
     constructor(props) {
@@ -8,7 +9,9 @@ class Frontpage extends React.Component {
     }
     render() {
         return (
-            <Welcome />
+            <div className='frontpage-wrapper'>
+                <Welcome />
+            </div>
         );
     }
 }
