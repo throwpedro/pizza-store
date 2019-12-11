@@ -9,7 +9,7 @@ const Header = () => {
                 <img src={pizzaLogo} alt="pizza icon" />
             </div>
             <div className="app-name-container">
-                <span>The Pizza Shop!</span>
+                <span>The Pizza Shop</span>
             </div>
         </header>
     );
