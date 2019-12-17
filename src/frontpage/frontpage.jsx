@@ -1,5 +1,6 @@
 import React from 'react';
 import Welcome from './welcome/welcome';
+import Menu from './menu/menu';
 import './frontpage.scss';
 
 class Frontpage extends React.Component {
@@ -11,6 +12,7 @@ class Frontpage extends React.Component {
         return (
             <div className='frontpage-wrapper'>
                 <Welcome />
+                <Menu />
             </div>
         );
     }

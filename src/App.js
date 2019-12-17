@@ -6,8 +6,10 @@ import "./App.css";
 function App() {
     return (
         <>
-        <Header />
-        <Frontpage />
+            <Header />
+            <div className="page-wrapper">
+                <Frontpage />
+            </div>
         </>
     );
 }

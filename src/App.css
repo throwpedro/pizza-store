@@ -1,4 +1,10 @@
 #root {
-    max-width: 980px;
     margin: auto;
+}
+
+.page-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    max-width: 1220px;
 }
