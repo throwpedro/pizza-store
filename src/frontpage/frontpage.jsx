@@ -11,7 +11,6 @@ class Frontpage extends React.Component {
     render() {
         return (
             <div className='frontpage-wrapper'>
-                <Welcome />
                 <Menu />
             </div>
         );
