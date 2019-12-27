@@ -1,17 +1,27 @@
 import React from 'react';
-import Welcome from './welcome/welcome';
 import Menu from './menu/menu';
 import './frontpage.scss';
 
 class Frontpage extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = {
+            isOpen: true,
+        }
+        this.toggleFrontpage = this.toggleFrontpage.bind(this);
     }
+
+    toggleFrontpage() {
+        this.setState({ isOpen: false });
+    }
+
     render() {
+        const isOpen = this.state.isOpen;
         return (
             <div className='frontpage-wrapper'>
-                <Menu />
+                {isOpen ? (
+                    <Menu toggle={this.toggleFrontpage}/>
+                ) : ( null )}
             </div>
         );
     }

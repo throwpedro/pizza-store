@@ -2,8 +2,8 @@ import React from "react";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import Avatar from "@material-ui/core/Avatar";
 import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -14,48 +14,39 @@ const useStyles = makeStyles(theme => ({
     paper: {
         maxWidth: 400,
         margin: `${theme.spacing(1)}px auto`,
-        padding: theme.spacing(2)
-    }
+        padding: theme.spacing(2),
+        height: 100,
+    },
+    typography: {
+        lineHeight: '100px',
+        fontSize: 24,
+    },
+    button: {
+        width: 400,
+        marginTop: 50,
+        height: 50,
+    },
 }));
 
-const message = `Truncation should be conditionally applicable on this long line of text
- as this is a much longer line than what the container can support. `;
+const welcomeMessage = 'Welcome to the pizza store';
 
-export default function AutoGridNoWrap() {
+const message = 'See the selection of pizzas';
+
+export default function AutoGridNoWrap(props) {
     const classes = useStyles();
 
     return (
         <div className={classes.root}>
             <Paper className={classes.paper}>
                 <Grid container wrap="nowrap" spacing={2}>
-                    <Grid item>
-                        <Avatar>W</Avatar>
-                    </Grid>
                     <Grid item xs zeroMinWidth>
-                        <Typography noWrap>{message}</Typography>
+                        <Typography className={classes.typography} noWrap>{welcomeMessage}</Typography>
                     </Grid>
                 </Grid>
             </Paper>
-            <Paper className={classes.paper}>
-                <Grid container wrap="nowrap" spacing={2}>
-                    <Grid item>
-                        <Avatar>W</Avatar>
-                    </Grid>
-                    <Grid item xs>
-                        <Typography>{message}</Typography>
-                    </Grid>
-                </Grid>
-            </Paper>
-            <Paper className={classes.paper}>
-                <Grid container wrap="nowrap" spacing={2}>
-                    <Grid item>
-                        <Avatar>W</Avatar>
-                    </Grid>
-                    <Grid item xs>
-                        <Typography>{message}</Typography>
-                    </Grid>
-                </Grid>
-            </Paper>
+            <Button className={classes.button} onClick={props.toggle} variant="contained" color="primary">
+                {message}
+            </Button>
         </div>
     );
 }
