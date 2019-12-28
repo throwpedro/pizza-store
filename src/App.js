@@ -22,11 +22,11 @@ export default class App extends React.Component {
     }
 
     render() {
-        console.log(this.state);
+        const { showFrontpage } = this.state;
         return (
             <>
                 <Header />
-                {this.state.showFrontpage ? (
+                {showFrontpage ? (
                     <Frontpage toggle={this.toggleShowMenuOrFrontpage} />
                 ) : (
                     <Menu toggle={this.toggleShowMenuOrFrontpage} />
