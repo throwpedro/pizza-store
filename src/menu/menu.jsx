@@ -16,16 +16,7 @@ export default function AutoGridNoWrap(props) {
             flexGrow: 1,
             overflow: "hidden",
             padding: theme.spacing(0, 3),
-        },
-        paper: {
-            maxWidth: 400,
-            margin: `${theme.spacing(1)}px auto`,
-            padding: theme.spacing(2),
-            height: 100,
-        },
-        typography: {
-            lineHeight: "100px",
-            fontSize: 24,
+            textAlign: "center",
         },
         button: {
             maxWidth: 400,
@@ -56,12 +47,7 @@ export default function AutoGridNoWrap(props) {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <Grid
-                container
-                wrap="nowrap"
-                style={{ textAlign: "center" }}
-                spacing={2}
-            >
+            <Grid container wrap="nowrap" spacing={2} justify="center">
                 {loading ? (
                     <CircularProgress />
                 ) : (
@@ -70,13 +56,13 @@ export default function AutoGridNoWrap(props) {
                     </>
                 )}
             </Grid>
-            <Grid
-                container
-                wrap="nowrap"
-                style={{ textAlign: "center" }}
-                spacing={2}
-            >
-                <Button onClick={toggle} variant="contained" color="primary">
+            <Grid container wrap="nowrap" spacing={2} justify="center">
+                <Button
+                    className={classes.button}
+                    onClick={toggle}
+                    variant="contained"
+                    color="primary"
+                >
                     Go to frontpage
                 </Button>
             </Grid>
