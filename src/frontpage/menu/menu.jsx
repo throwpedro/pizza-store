@@ -22,7 +22,9 @@ const useStyles = makeStyles(theme => ({
         fontSize: 24,
     },
     button: {
-        width: 400,
+        maxWidth: 400,
+        margin: `${theme.spacing(1)}px auto`,
+        padding: theme.spacing(2),
         marginTop: 50,
         height: 50,
     },
@@ -34,19 +36,20 @@ const message = 'See the selection of pizzas';
 
 export default function AutoGridNoWrap(props) {
     const classes = useStyles();
-
     return (
         <div className={classes.root}>
             <Paper className={classes.paper}>
                 <Grid container wrap="nowrap" spacing={2}>
-                    <Grid item xs zeroMinWidth>
+                    <Grid item xs style={{textAlign: 'center'}} zeroMinWidth>
                         <Typography className={classes.typography} noWrap>{welcomeMessage}</Typography>
                     </Grid>
                 </Grid>
             </Paper>
-            <Button className={classes.button} onClick={props.toggle} variant="contained" color="primary">
-                {message}
-            </Button>
+            <Grid container wrap="nowrap" spacing={2}>
+                <Button className={classes.button} onClick={props.toggle} variant="contained" color="primary">
+                    {message}
+                </Button>
+            </Grid>
         </div>
     );
 }
