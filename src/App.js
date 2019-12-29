@@ -1,7 +1,7 @@
 import React from "react";
-import Frontpage from './frontpage/frontpage';
-import Header from './shared/header/header';
-import Menu from './menu/menu';
+import Frontpage from "./frontpage/frontpage";
+import Header from "./shared/header/header";
+import Menu from "./menu/menu";
 import "./App.css";
 
 export default class App extends React.Component {
@@ -11,11 +11,13 @@ export default class App extends React.Component {
             showFrontpage: true,
             showMenu: false,
         };
-        this.toggleShowMenuOrFrontpage = this.toggleShowMenuOrFrontpage.bind(this);
+        this.toggleShowMenuOrFrontpage = this.toggleShowMenuOrFrontpage.bind(
+            this
+        );
     }
 
     toggleShowMenuOrFrontpage() {
-        this.setState((prevState) => ({
+        this.setState(prevState => ({
             showFrontpage: !prevState.showFrontpage,
             showMenu: !prevState.showMenu,
         }));

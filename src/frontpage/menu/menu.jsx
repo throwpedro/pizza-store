@@ -9,7 +9,7 @@ const useStyles = makeStyles(theme => ({
     root: {
         flexGrow: 1,
         overflow: "hidden",
-        padding: theme.spacing(0, 3)
+        padding: theme.spacing(0, 3),
     },
     paper: {
         maxWidth: 400,
@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
         height: 100,
     },
     typography: {
-        lineHeight: '100px',
+        lineHeight: "100px",
         fontSize: 24,
     },
     button: {
@@ -30,9 +30,9 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-const welcomeMessage = 'Welcome to the pizza store';
+const welcomeMessage = "Welcome to the pizza store";
 
-const message = 'See the selection of pizzas';
+const message = "See the selection of pizzas";
 
 export default function AutoGridNoWrap(props) {
     const classes = useStyles();
@@ -40,13 +40,20 @@ export default function AutoGridNoWrap(props) {
         <div className={classes.root}>
             <Paper className={classes.paper}>
                 <Grid container wrap="nowrap" spacing={2}>
-                    <Grid item xs style={{textAlign: 'center'}} zeroMinWidth>
-                        <Typography className={classes.typography} noWrap>{welcomeMessage}</Typography>
+                    <Grid item xs style={{ textAlign: "center" }} zeroMinWidth>
+                        <Typography className={classes.typography} noWrap>
+                            {welcomeMessage}
+                        </Typography>
                     </Grid>
                 </Grid>
             </Paper>
             <Grid container wrap="nowrap" spacing={2}>
-                <Button className={classes.button} onClick={props.toggle} variant="contained" color="primary">
+                <Button
+                    className={classes.button}
+                    onClick={props.toggle}
+                    variant="contained"
+                    color="primary"
+                >
                     {message}
                 </Button>
             </Grid>
