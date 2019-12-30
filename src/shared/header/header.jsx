@@ -6,6 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
+import LoginDialog from "./loginDialog";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -19,9 +20,16 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
+
 export default function Header() {
     const classes = useStyles();
-
+    const [dialogOpen, setDialogOpen] = React.useState(false);
+    const openLoginDialog = () => {
+        setDialogOpen(true);
+    };
+    const handleClose = () => {
+        setDialogOpen(false);
+    }
     return (
         <div className={classes.root}>
             <AppBar position="static">
@@ -37,7 +45,8 @@ export default function Header() {
                     <Typography variant="h6" className={classes.title}>
                         Pizza-Fun
                     </Typography>
-                    <Button color="inherit">Login</Button>
+                    <Button onClick={openLoginDialog} color="inherit">Login</Button>
+                    <LoginDialog open={dialogOpen} onClose={handleClose} />
                 </Toolbar>
             </AppBar>
         </div>
