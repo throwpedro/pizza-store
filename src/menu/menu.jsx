@@ -10,6 +10,7 @@ import { useEffect } from "react";
 export default function AutoGridNoWrap(props) {
     const [pizzas, setPizzas] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [errors, setErrors] = useState(null);
 
     const useStyles = makeStyles(theme => ({
         root: {
@@ -30,31 +31,42 @@ export default function AutoGridNoWrap(props) {
     useEffect(() => {
         fetch("https://crudpi.io/a46a24/pizzapizza")
             .then(res => res.json())
-            .then(res => setPizzas(res), setLoading(false))
-            .catch(err => console.log(err));
-    }, []);
+            .then(res => {
+                setPizzas(res);
+            })
+            .catch((err) => {
+                setErrors('Failed to fetch pizzas :(')
+            })
+            .finally(() => setLoading(false));
+        }, []);
 
-    const pizzaList = pizzas.map(pizza => (
-        <ListItem key={pizza.id}>
-            {pizza.name}
-            <br />
-            {pizza.toppings.join(", ")}
-            <br />
-            {pizza.price}
-        </ListItem>
-    ));
     const { toggle } = props;
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <Grid container wrap="nowrap" spacing={2} justify="center">
+            <Grid container wrap="nowrap" justify="center">
                 {loading ? (
-                    <CircularProgress />
-                ) : (
                     <>
-                        <List>{pizzaList}</List>
+                        <CircularProgress />
                     </>
-                )}
+                ) : (
+                    errors ? (
+                        <div>{errors}</div>
+                    ) : (
+                        <>
+                            <List>
+                                {pizzas.map(pizza => (
+                                    <ListItem key={pizza.id}>
+                                        {pizza.name}
+                                        <br />
+                                        {pizza.toppings.join(", ")}
+                                        <br />
+                                        {pizza.price}
+                                    </ListItem>
+                                ))}
+                            </List>
+                        </>
+                    ))}
             </Grid>
             <Grid container wrap="nowrap" spacing={2} justify="center">
                 <Button

@@ -24,17 +24,24 @@ export default function FormDialog(props) {
                         autoFocus
                         margin="dense"
                         id="name"
-                        label="Email Address"
-                        type="email"
+                        label="Username"
+                        type="text"
+                        fullWidth
+                    />
+                    <TextField
+                        margin="dense"
+                        id="name"
+                        label="Password"
+                        type="password"
                         fullWidth
                     />
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={props.onClose} color="primary">
+                    <Button onClick={props.onClose} color="secondary">
                         Cancel
                     </Button>
                     <Button onClick={props.onClose} color="primary">
-                        Subscribe
+                        Login
                     </Button>
                 </DialogActions>
             </Dialog>
